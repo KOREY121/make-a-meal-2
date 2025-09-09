@@ -5,83 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Make a Meal - Menu</title>
   <link rel="stylesheet" href="css/style.css">
-
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold">🍴 Menu</h1>
-    <div class="space-x-6">
-      <a href="index.html" class="hover:text-orange-500">Home</a>
-      <a href="about.html" class="hover:text-orange-500">About</a>
-      <a href="menu.html" class="hover:text-orange-500">Menu</a>
-      <a href="contact.html" class="hover:text-orange-500">Contact</a>
-    </div>
+  
+  <nav class="bg-gray-800 text-white px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold">🍴 kOREY’S MENU</a>
+    <ul class="flex gap-6 items-center">
+      <li><a href="index.html" class="hover:text-orange-400">Home</a></li>
+      <li><a href="about.html" class="hover:text-orange-400">About</a></li>
+      <li><a href="contact.html" class="hover:text-orange-400">Contact</a></li>
+      <li><a href="login.html" class="bg-green-500 px-4 py-2 rounded-xl hover:bg-green-600">Login</a></li>
+    </ul>
   </nav>
 
-  <section class="p-12">
-  <h2 class="text-3xl font-bold mb-8 text-center">Our Menu</h2>
+  
+  <section class="flex p-8 gap-8">
+    
+    
+    <aside class="w-1/4 bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-2xl font-bold mb-6">MENU</h2>
+      <input type="text" placeholder="find your meal...."
+        class="w-full border rounded-lg p-2 mb-4">
+      <button class="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600">Search</button>
+      
+      <h3 class="mt-8 font-bold">Categories</h3>
+      <ul class="space-y-2 mt-2 font-bold text-gray-700">
+        <li><a href="#" class="hover:text-teal-500">Rice</a></li>
+        <li><a href="#" class="hover:text-teal-500">Side dishes</a></li>
+        <li><a href="#" class="hover:text-teal-500">Snacks</a></li>
+        <li><a href="#" class="hover:text-teal-500">Swallow</a></li>
+        <li><a href="#" class="hover:text-teal-500">Drinks</a></li>
+        <li><a href="#" class="hover:text-teal-500">cake</a></li>
+        <li><a href="#" class="hover:text-teal-500">Parfait</a></li>
+      </ul>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="mt-8">
+        <button class="w-full bg-yellow-400 text-black py-2 rounded-lg hover:bg-yellow-500">Clear</button>
+      </div>
+    </aside>
 
-    <!-- Item 1 -->
-    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-700 ease-in-out">
-      <img src="media/item_images/chef.png" class="w-full h-48 object-cover rounded-2xl">
-      <div class="p-4 bg-white">
-        <h2 class="text-xl font-bold">Chef Special</h2>
-        <p class="text-gray-700">Price: $20</p>
+    
+    <div class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/Screenshot 2025-09-01 134055.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Jollof Rice and Grilled Chicken</h3>
+          <p class="text-gray-600">Price: ₦12,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/parfait (2).png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Parfait</h3>
+          <p class="text-gray-600">Price: ₦6,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/vanilla cake.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">vanilla cake</h3>
+          <p class="text-gray-600">Price: ₦17,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/Screenshot 2025-09-01 134055.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Jollof rice and Plantains</h3>
+          <p class="text-gray-600">Price: ₦12,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/zobo.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Chilled Zobo</h3>
+          <p class="text-gray-600">Price: ₦1,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/Screenshot 2025-09-01 134026.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Jollof Rice</h3>
+          <p class="text-gray-600">Price: ₦15,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/Screenshot 2025-09-01 133715.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Meat Pie</h3>
+          <p class="text-gray-600">Price: ₦1,000</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/amala.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Amala and Ewedu Soup</h3>
+          <p class="text-gray-600">Price: ₦3,500</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+        <img src="media/item_images/Screenshot 2025-09-01 134207.png" class="h-48 w-full object-cover">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">White Rice and Stew</h3>
+          <p class="text-gray-600">Price: ₦3,000</p>
+        </div>
       </div>
     </div>
-
-    <!-- Item 2 -->
-    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-700 ease-in-out">
-      <img src="media/item_images/Screenshot 2025-09-03 004519.png" class="w-full h-48 object-cover rounded-2xl">
-      <div class="p-4 bg-white">
-        <h2 class="text-xl font-bold">Signature Dish</h2>
-        <p class="text-gray-700">Price: $15</p>
-      </div>
-    </div>
-
-    <!-- Item 3 -->
-    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-700 ease-in-out">
-      <img src="media/item_images/Screenshot 2025-09-01 134055.png" class="w-full h-48 object-cover rounded-2xl">
-      <div class="p-4 bg-white">
-        <h2 class="text-xl font-bold">Signature Dish</h2>
-        <p class="text-gray-700">Price: $15</p>
-      </div>
-    </div>
-
-    <!-- Item 4 -->
-    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-700 ease-in-out">
-      <img src="media/item_images/Screenshot 2025-09-01 134026.png" class="w-full h-48 object-cover rounded-2xl">
-      <div class="p-4 bg-white">
-        <h2 class="text-xl font-bold">Signature Dish</h2>
-        <p class="text-gray-700">Price: $15</p>
-      </div>
-    </div>
-
-    <!-- Item 5 -->
-    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-700 ease-in-out">
-      <img src="media/item_images/Screenshot 2025-09-01 133750.png" class="w-full h-48 object-cover rounded-2xl">
-      <div class="p-4 bg-white">
-        <h2 class="text-xl font-bold">Signature Dish</h2>
-        <p class="text-gray-700">Price: $15</p>
-      </div>
-    </div>
-
-    <!-- Item 6 -->
-    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transform hover:scale-105 transition duration-700 ease-in-out">
-      <img src="media/item_images/Screenshot 2025-09-01 133715.png" class="w-full h-48 object-cover rounded-2xl">
-      <div class="p-4 bg-white">
-        <h2 class="text-xl font-bold">Signature Dish</h2>
-        <p class="text-gray-700">Price: $15</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 
   <footer class="bg-gray-800 text-white text-center p-6 mt-12">
     © 2025 korey’s kitchen. All rights reserved.

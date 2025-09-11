@@ -9,123 +9,119 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  
-  <nav class="bg-gray-800 text-white px-6 py-4 flex justify-between items-center">
-    <a href="index.html" class="text-xl font-bold">🍴 kOREY’S MENU</a>
-    <ul class="flex gap-6 items-center">
-      <li><a href="index.html" class="hover:text-orange-400">Home</a></li>
-      <li><a href="about.html" class="hover:text-orange-400">About</a></li>
-      <li><a href="contact.html" class="hover:text-orange-400">Contact</a></li>
-      <li><a href="login.html" class="bg-green-500 px-4 py-2 rounded-xl hover:bg-green-600">Login</a></li>
-    </ul>
-  </nav>
+
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-transparent text-white transition duration-500 ease-in-out px-6 py-4 flex justify-between items-center">
+  <a href="index.html" class="text-xl font-bold">🍴 KOREY’S KITCHEN</a>
+  <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+  <ul id="navLinks" class="hidden md:flex gap-6 items-center flex-col md:flex-row bg-gray-800 md:bg-transparent absolute md:static top-16 left-0 w-full md:w-auto p-6 md:p-0">
+    <li><a href="index.html" class="hover:text-orange-400">Home</a></li>
+    <li><a href="about.html" class="hover:text-orange-400">About</a></li>
+    <li><a href="menu.html" class="text-orange-400 font-semibold">Menu</a></li>
+    <li><a href="contact.html" class="hover:text-orange-400">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("menuBtn").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("hidden");
+    });
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.remove("bg-transparent");
+        navbar.classList.add("bg-gray-800", "shadow-md");
+      } else {
+        navbar.classList.add("bg-transparent");
+        navbar.classList.remove("bg-gray-800", "shadow-md");
+      }
+    });
+  });
+</script>
+
+
+<section class="pt-28 p-6 md:p-20 max-w-6xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Our Menu</h2>
+  <p class="text-base md:text-lg leading-relaxed text-center mb-12">
+    Explore our freshly prepared dishes crafted to delight your taste buds.
+  </p>
 
   
-  <section class="flex p-8 gap-8">
-    
-    
-    <aside class="w-1/4 bg-white rounded-xl shadow-md p-6">
-      <h2 class="text-2xl font-bold mb-6">MENU</h2>
-      <input type="text" placeholder="find your meal...."
-        class="w-full border rounded-lg p-2 mb-4">
-      <button class="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600">Search</button>
-      
-      <h3 class="mt-8 font-bold">Categories</h3>
-      <ul class="space-y-2 mt-2 font-bold text-gray-700">
-        <li><a href="#" class="hover:text-teal-500">Rice</a></li>
-        <li><a href="#" class="hover:text-teal-500">Side dishes</a></li>
-        <li><a href="#" class="hover:text-teal-500">Snacks</a></li>
-        <li><a href="#" class="hover:text-teal-500">Swallow</a></li>
-        <li><a href="#" class="hover:text-teal-500">Drinks</a></li>
-        <li><a href="#" class="hover:text-teal-500">cake</a></li>
-        <li><a href="#" class="hover:text-teal-500">Parfait</a></li>
-      </ul>
-
-      <div class="mt-8">
-        <button class="w-full bg-yellow-400 text-black py-2 rounded-lg hover:bg-yellow-500">Clear</button>
-      </div>
-    </aside>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
     
-    <div class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/Screenshot 2025-09-01 134055.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Jollof Rice and Grilled Chicken</h3>
-          <p class="text-gray-600">Price: ₦12,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/parfait (2).png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Parfait</h3>
-          <p class="text-gray-600">Price: ₦6,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/vanilla cake.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">vanilla cake</h3>
-          <p class="text-gray-600">Price: ₦17,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/Screenshot 2025-09-01 134055.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Jollof rice and Plantains</h3>
-          <p class="text-gray-600">Price: ₦12,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/zobo.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Chilled Zobo</h3>
-          <p class="text-gray-600">Price: ₦1,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/Screenshot 2025-09-01 134026.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Jollof Rice</h3>
-          <p class="text-gray-600">Price: ₦15,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/Screenshot 2025-09-01 133715.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Meat Pie</h3>
-          <p class="text-gray-600">Price: ₦1,000</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/amala.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">Amala and Ewedu Soup</h3>
-          <p class="text-gray-600">Price: ₦3,500</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
-        <img src="media/item_images/Screenshot 2025-09-01 134207.png" class="h-48 w-full object-cover">
-        <div class="p-4">
-          <h3 class="font-bold text-lg">White Rice and Stew</h3>
-          <p class="text-gray-600">Price: ₦3,000</p>
-        </div>
-      </div>
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/amala.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Amala">
+      <h3 class="text-lg font-semibold">Amala Special</h3>
+      <p class="text-gray-600 text-sm">With gbegiri & ewedu</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2,500</span>
     </div>
-  </section>
 
-  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10">
     
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/Screenshot 2025-09-01 134026.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Rice and Turkey">
+      <h3 class="text-lg font-semibold">Rice & Turkey</h3>
+      <p class="text-gray-600 text-sm">Jollof rice with grilled turkey</p>
+      <span class="block mt-2 font-bold text-orange-500">₦3,000</span>
+    </div>
+
     
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/Screenshot 2025-09-04 232551.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">Spaghetti</h3>
+      <p class="text-gray-600 text-sm">Slurpy spaghetti and shrimp</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2000</span>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/parfait.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">Parfait</h3>
+      <p class="text-gray-600 text-sm">Creamy cake parfait</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2,000</span>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/vanilla cake.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">vanilla Cake</h3>
+      <p class="text-gray-600 text-sm">Fluffy vanilla cream flavoured cake</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2,000</span>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/Screenshot 2025-09-01 134055.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">jollof rice and Plantains</h3>
+      <p class="text-gray-600 text-sm">Smoky jollof Rice with sweet plantains</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2,000</span>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/zobo.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">Zobo Drink</h3>
+      <p class="text-gray-600 text-sm">Sweet hybiscus zobo leaf drink</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2000</span>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/Screenshot 2025-09-01 133750.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">Meat Pie</h3>
+      <p class="text-gray-600 text-sm">Crispy Meat Pie</p>
+      <span class="block mt-2 font-bold text-orange-500">₦1,000</span>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-xl p-4 text-center">
+      <img src="media/item_images/Screenshot 2025-09-01 134207.png" class="rounded-lg w-full h-40 object-cover mb-4" alt="Burger & Fries">
+      <h3 class="text-lg font-semibold">White rice and stew</h3>
+      <p class="text-gray-600 text-sm">Tasty rice and Stew</p>
+      <span class="block mt-2 font-bold text-orange-500">₦2000</span>
+    </div>
+
+    
+  </div>
+</section>
+
+
+<footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10">
     <div>
       <h3 class="text-lg font-bold text-white mb-4">Contact</h3>
       <ul class="space-y-2 text-sm">
@@ -133,8 +129,6 @@
         <li>+234 70105 62579</li>
       </ul>
     </div>
-
-   
     <div>
       <h3 class="text-lg font-bold text-white mb-4">Company</h3>
       <ul class="space-y-2 text-sm">
@@ -142,57 +136,27 @@
         <li><a href="contact.html" class="hover:text-orange-400">Contact us</a></li>
         <li><a href="#" class="hover:text-orange-400">Careers</a></li>
         <li><a href="#" class="hover:text-orange-400">FAQs</a></li>
-        <li><a href="#" class="hover:text-orange-400">User Policy</a></li>
-        <li><a href="#" class="hover:text-orange-400">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-orange-400">Terms</a></li>
       </ul>
     </div>
-
-    
     <div>
       <h3 class="text-lg font-bold text-white mb-4">Locations</h3>
-      <ul class="space-y-2 text-sm max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+      <ul class="space-y-2 text-sm">
         <li>Lekki</li>
         <li>Ikoyi</li>
         <li>Victoria Island</li>
-        <li>Marina</li>
-        <li>Yaba</li>
         <li>Ikeja</li>
-        <li>Egbeda</li>
       </ul>
     </div>
-
-    
     <div class="col-span-2">
-      <h3 class="text-lg font-bold text-white mb-4">Restaurants</h3>
-      <div class="grid grid-cols-2 gap-4 text-sm">
-        <ul class="space-y-2">
-          <li>kOREY’S Kitchen,Lekki</li>
-          <li>kOREY’S Kitchen,Ikoyi</li>
-          <li>kOREY’S Kitchen,V.I</li>
-          <li>kOREY’S Kitchen,Marina</li>
-          <li>kOREY’S Kitchen,Yaba</li>
-          <li>kOREY’S Kitchen,Egbeda</li>
-        </ul>
-        
-      </div>
-    </div>
-
-    
-    <div>
       <h3 class="text-lg font-bold text-white mb-4">Follow Us</h3>
       <div class="flex gap-4">
         <a href="#" class="hover:text-orange-400">🌐</a>
         <a href="#" class="hover:text-orange-400">📘</a>
         <a href="#" class="hover:text-orange-400">🐦</a>
         <a href="#" class="hover:text-orange-400">📸</a>
-        <a href="#" class="hover:text-orange-400">▶️</a>
       </div>
     </div>
-
   </div>
-
-  
   <div class="border-t border-gray-700 mt-12 pt-6 text-center text-sm text-gray-500">
     © 2025 kOREY’S kitchen. All rights reserved.
   </div>

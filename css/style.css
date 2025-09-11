@@ -1,29 +1,22 @@
-/* ==============================
-   Global Styles
-   ============================== */
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   scroll-behavior: smooth;
 }
 
-/* Smooth hover transition for links */
+
 a {
   transition: color 0.3s ease;
 }
 
-/* ==============================
-   Navbar
-   ============================== */
+
 nav {
   position: sticky;
   top: 0;
   z-index: 50;
 }
 
-/* ==============================
-   Buttons
-   ============================== */
+
 button, .btn {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -32,9 +25,7 @@ button:hover, .btn:hover {
   transform: translateY(-2px);
 }
 
-/* ==============================
-   Animations
-   ============================== */
+
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -48,9 +39,7 @@ button:hover, .btn:hover {
   }
 }
 
-/* ==============================
-   Footer
-   ============================== */
+
 footer {
   font-size: 0.9rem;
 }

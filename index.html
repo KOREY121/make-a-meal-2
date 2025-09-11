@@ -29,12 +29,12 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Mobile nav toggle
+    
     document.getElementById("menuBtn").addEventListener("click", () => {
       document.getElementById("navLinks").classList.toggle("hidden");
     });
 
-    // Carousel
+    
     const carousel = document.querySelector("[data-carousel='slide']");
     if (carousel) {
       const items = carousel.querySelectorAll("[data-carousel-item]");
@@ -47,7 +47,7 @@
       setInterval(showNext, 5000);
     }
 
-    // Navbar scroll effect
+    
     window.addEventListener("scroll", function () {
       const navbar = document.getElementById("navbar");
       if (window.scrollY > 50) {
@@ -65,7 +65,7 @@
 
 <div id="default-carousel" class="relative w-full h-full mb-5 shadow-sm" data-carousel="slide">
   <div class="relative h-64 md:h-96 lg:h-[500px] overflow-hidden rounded-b-2xl">
-    <!-- Slide 1 -->
+    
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <img src="media/item_images/Screenshot 2025-09-03 004519.png" class="absolute block w-full h-full object-cover" alt="Slide 1">
       <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center px-4">
@@ -74,14 +74,14 @@
         <a href="menu.html" class="mt-6 px-6 py-3 bg-teal-500 hover:bg-teal-600 rounded-lg text-white font-medium">Browse Menu</a>
       </div>
     </div>
-    <!-- Slide 2 -->
+    
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <img src="media/item_images/Screenshot 2025-09-04 232551.png" class="absolute block w-full h-full object-cover" alt="Slide 2">
       <div class="absolute inset-0 bg-black/40 flex items-center justify-center px-4 text-center">
         <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white">Satisfy your cravings...</h2>
       </div>
     </div>
-    <!-- Slide 3 -->
+    
     <div class="hidden duration-700 ease-in-out" data-carousel-item>
       <img src="media/item_images/amala.png" class="absolute block w-full h-full object-cover" alt="Slide 3">
       <div class="absolute inset-0 bg-black/40 flex items-center justify-center px-4 text-center">

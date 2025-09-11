@@ -5,54 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Make a Meal - About Us</title>
   <link rel="stylesheet" href="css/style.css">
-
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold">🍴 Menu</h1>
-    <div class="space-x-6">
-      <a href="index.html" class="hover:text-orange-500">Home</a>
-      <a href="about.html" class="hover:text-orange-500">About</a>
-      <a href="menu.html" class="hover:text-orange-500">Menu</a>
-      <a href="contact.html" class="hover:text-orange-500">Contact</a>
+
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-transparent text-white transition duration-500 ease-in-out px-6 py-4 flex justify-between items-center">
+  <a href="index.html" class="text-xl font-bold">🍴 KOREY’S KITCHEN</a>
+  <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+  <ul id="navLinks" class="hidden md:flex gap-6 items-center flex-col md:flex-row bg-gray-800 md:bg-transparent absolute md:static top-16 left-0 w-full md:w-auto p-6 md:p-0">
+    <li><a href="index.html" class="hover:text-orange-400">Home</a></li>
+    <li><a href="about.html" class="hover:text-orange-400">About</a></li>
+    <li><a href="menu.html" class="hover:text-orange-400">Menu</a></li>
+    <li><a href="contact.html" class="hover:text-orange-400">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("menuBtn").addEventListener("click", () => {
+      document.getElementById("navLinks").classList.toggle("hidden");
+    });
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.remove("bg-transparent");
+        navbar.classList.add("bg-gray-800", "shadow-md");
+      } else {
+        navbar.classList.add("bg-transparent");
+        navbar.classList.remove("bg-gray-800", "shadow-md");
+      }
+    });
+  });
+</script>
+
+
+<section class="pt-28 p-6 md:p-20 max-w-5xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">About Us</h2>
+  <p class="text-base md:text-lg leading-relaxed text-center mb-12">
+    At <span class="font-semibold">korey’s kitchen</span>, food is more than just a necessity —
+    it’s an experience. From our humble beginnings, we’ve dedicated ourselves to creating
+    meals that bring joy, comfort, and unforgettable memories.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <img src="media/item_images/chef.png" alt="Our Chefs" class="rounded-2xl shadow-lg">
+    <div>
+      <h3 class="text-xl md:text-2xl font-semibold mb-4">Our Belief</h3>
+      <p class="text-base md:text-lg leading-relaxed mb-6">
+        We believe every dish should tell a story. Our chefs blend tradition and creativity,
+        using only the freshest ingredients to prepare meals that satisfy both body and soul.
+      </p>
+      <h3 class="text-xl md:text-2xl font-semibold mb-4">Why Choose Us?</h3>
+      <ul class="list-disc pl-6 space-y-2 text-base md:text-lg">
+        <li>Passionate chefs with years of experience</li>
+        <li>Fresh, locally sourced ingredients</li>
+        <li>A wide variety of delicious menu options</li>
+        <li>Commitment to quality and customer satisfaction</li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- About Section -->
-  <section class="p-12 md:p-20 max-w-5xl mx-auto">
-    <h2 class="text-4xl font-bold mb-6 text-center">About Us</h2>
-    <p class="text-lg leading-relaxed text-center mb-12">
-      At <span class="font-semibold">korey’s kitchen </span>, food is more than just a necessity — 
-      it’s an experience. From our humble beginnings, we’ve dedicated ourselves to creating 
-      meals that bring joy, comfort, and unforgettable memories.  
-    </p>
 
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <img src="media/item_images/chef.png" alt="Our Chefs" class="rounded-2xl shadow-lg">
-      <div>
-        <h3 class="text-2xl font-semibold mb-4">Our Belief</h3>
-        <p class="text-lg leading-relaxed mb-6">
-          We believe every dish should tell a story. Our chefs blend tradition and creativity, 
-          using only the freshest ingredients to prepare meals that satisfy both body and soul.  
-        </p>
-        <h3 class="text-2xl font-semibold mb-4">Why Choose Us?</h3>
-        <ul class="list-disc pl-6 space-y-2 text-lg">
-          <li>Passionate chefs with years of experience</li>
-          <li>Fresh, locally sourced ingredients</li>
-          <li>A wide variety of delicious menu options</li>
-          <li>Commitment to quality and customer satisfaction</li>
-        </ul>
+<footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10">
+    <div>
+      <h3 class="text-lg font-bold text-white mb-4">Contact</h3>
+      <ul class="space-y-2 text-sm">
+        <li>kOREY’Skitchen@gmail.com</li>
+        <li>+234 70105 62579</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold text-white mb-4">Company</h3>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-orange-400">About us</a></li>
+        <li><a href="contact.html" class="hover:text-orange-400">Contact us</a></li>
+        <li><a href="#" class="hover:text-orange-400">Careers</a></li>
+        <li><a href="#" class="hover:text-orange-400">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold text-white mb-4">Locations</h3>
+      <ul class="space-y-2 text-sm">
+        <li>Lekki</li>
+        <li>Ikoyi</li>
+        <li>Victoria Island</li>
+        <li>Ikeja</li>
+      </ul>
+    </div>
+    <div class="col-span-2">
+      <h3 class="text-lg font-bold text-white mb-4">Follow Us</h3>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-orange-400">🌐</a>
+        <a href="#" class="hover:text-orange-400">📘</a>
+        <a href="#" class="hover:text-orange-400">🐦</a>
+        <a href="#" class="hover:text-orange-400">📸</a>
       </div>
     </div>
-  </section>
-
-
-  <footer class="bg-gray-800 text-white text-center p-6 mt-12">
-    © 2025 korey’s kitchen. All rights reserved.
-  </footer>
+  </div>
+  <div class="border-t border-gray-700 mt-12 pt-6 text-center text-sm text-gray-500">
+    © 2025 kOREY’S kitchen. All rights reserved.
+  </div>
+</footer>
 
 </body>
 </html>

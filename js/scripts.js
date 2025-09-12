@@ -54,7 +54,7 @@ function updateNavbar() {
 
   navLinks.innerHTML = "";
 
-  const role = localStorage.getItem("userRole"); // "admin" | "user" | null
+  const role = localStorage.getItem("userRole"); 
 
   let commonLinks = `
     <li><a href="index.html" class="hover:text-orange-400">Home</a></li>

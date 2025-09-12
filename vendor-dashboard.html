@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Dashboard - Make a Meal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (!user || user.role !== "vendor") {
+    window.location.href = "login.html"; 
+  }
+
+  function loadItems() {
+    const foodList = document.getElementById("foodList");
+    foodList.innerHTML = "";
+
+    let items = JSON.parse(localStorage.getItem("foodItems")) || [];
+    let vendorItems = items.filter(item => item.vendor === user.username);
+
+    vendorItems.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "bg-gray-50 shadow rounded-xl p-4";
+      card.innerHTML = `
+        <img src="${item.image}" class="w-full h-40 object-cover rounded-lg mb-3">
+        <h3 class="text-lg font-bold">${item.name}</h3>
+        <p class="text-gray-600">₦${item.price}</p>
+      `;
+      foodList.appendChild(card);
+    });
+  }
+
+  document.getElementById("foodForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("foodName").value;
+    const price = document.getElementById("foodPrice").value;
+    const file = document.getElementById("foodImage").files[0];
+
+    if (!file) {
+      alert("Please upload an image!");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const image = event.target.result;
+
+      let items = JSON.parse(localStorage.getItem("foodItems")) || [];
+      items.push({ vendor: user.username, name, price, image });
+
+      localStorage.setItem("foodItems", JSON.stringify(items));
+      loadItems();
+      e.target.reset();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  window.onload = loadItems;
+</script>
+
+
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-6">
+    <h2 class="text-2xl font-bold text-center text-teal-600 mb-6">Upload Food Item</h2>
+
+    
+    <form id="foodForm" class="space-y-4 mb-6">
+      <input type="hidden" id="foodId"> 
+      
+      <div>
+        <label class="block mb-1">Food Name</label>
+        <input type="text" id="foodName" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+
+      <div>
+        <label class="block mb-1">Price (₦)</label>
+        <input type="number" id="foodPrice" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+
+      <div>
+        <label class="block mb-1">Upload Image</label>
+        <input type="file" id="foodImage" accept="image/*" class="w-full border rounded-lg px-3 py-2">
+      </div>
+
+      <button type="submit" class="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-orange-600 transition">
+        Save Food
+      </button>
+    </form>
+
+    <h3 class="text-xl font-bold text-gray-700 mb-4">Your Uploaded Items</h3>
+    <div id="foodList" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+  </div>
+
+  <script>
+    let db;
+
+    
+    const request = indexedDB.open("MakeAMealDB", 1);
+
+    request.onupgradeneeded = function(event) {
+      db = event.target.result;
+      if (!db.objectStoreNames.contains("foodItems")) {
+        const store = db.createObjectStore("foodItems", { keyPath: "id", autoIncrement: true });
+        store.createIndex("name", "name", { unique: false });
+      }
+    };
+
+    request.onsuccess = function(event) {
+      db = event.target.result;
+      loadItems();
+    };
+
+    request.onerror = function(event) {
+      console.error("IndexedDB error:", event.target.error);
+    };
+
+   
+    document.getElementById("foodForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const id = document.getElementById("foodId").value;
+      const name = document.getElementById("foodName").value;
+      const price = document.getElementById("foodPrice").value;
+      const file = document.getElementById("foodImage").files[0];
+
+      const saveData = (image) => {
+        const transaction = db.transaction(["foodItems"], "readwrite");
+        const store = transaction.objectStore("foodItems");
+
+        const foodItem = { name, price, image };
+
+        if (id) {
+          
+          foodItem.id = Number(id);
+          store.put(foodItem);
+        } else {
+         
+          store.add(foodItem);
+        }
+
+        transaction.oncomplete = function() {
+          loadItems();
+          e.target.reset();
+          document.getElementById("foodId").value = "";
+        };
+      };
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => saveData(event.target.result);
+        reader.readAsDataURL(file);
+      } else if (id) {
+        
+        const transaction = db.transaction(["foodItems"], "readonly");
+        const store = transaction.objectStore("foodItems");
+        store.get(Number(id)).onsuccess = (event) => {
+          const oldItem = event.target.result;
+          saveData(oldItem.image);
+        };
+      } else {
+        alert("Please upload an image!");
+      }
+    });
+
+    
+    function loadItems() {
+      const foodList = document.getElementById("foodList");
+      foodList.innerHTML = "";
+
+      const transaction = db.transaction(["foodItems"], "readonly");
+      const store = transaction.objectStore("foodItems");
+      const request = store.openCursor();
+
+      request.onsuccess = function(event) {
+        const cursor = event.target.result;
+        if (cursor) {
+          const item = cursor.value;
+
+          const card = document.createElement("div");
+          card.className = "bg-gray-50 shadow rounded-xl p-4 flex flex-col";
+
+          card.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="w-full h-40 object-cover rounded-lg mb-3">
+            <h3 class="text-lg font-bold">${item.name}</h3>
+            <p class="text-gray-600">₦${item.price}</p>
+            <div class="mt-3 flex justify-between">
+              <button onclick="editItem(${item.id})" class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600">Edit</button>
+              <button onclick="deleteItem(${item.id})" class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600">Delete</button>
+            </div>
+          `;
+
+          foodList.appendChild(card);
+          cursor.continue();
+        }
+      };
+    }
+
+   
+    function editItem(id) {
+      const transaction = db.transaction(["foodItems"], "readonly");
+      const store = transaction.objectStore("foodItems");
+      const request = store.get(id);
+
+      request.onsuccess = function(event) {
+        const item = event.target.result;
+        document.getElementById("foodId").value = item.id;
+        document.getElementById("foodName").value = item.name;
+        document.getElementById("foodPrice").value = item.price;
+        
+      };
+    }
+
+    
+    function deleteItem(id) {
+      const transaction = db.transaction(["foodItems"], "readwrite");
+      const store = transaction.objectStore("foodItems");
+      store.delete(id);
+
+      transaction.oncomplete = function() {
+        loadItems();
+      };
+    }
+  </script>
+
+</body>
+</html>

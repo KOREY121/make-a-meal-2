@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛒 Your Cart - Korey’s Kitchen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  
+  <header class="bg-orange-500 text-white py-4 px-6 text-center font-bold text-xl shadow-md">
+    🛒 Your Cart(your order)<a href="menu.html" 
+   class="fixed top-6 left-6 bg-white text-gray-800 px-4 py-3 rounded-full shadow-lg hover:bg-orange-600 transition flex items-center gap-2">
+  Back
+</a>
+    
+  </header>
+
+ 
+  <main class="flex-1 container mx-auto p-6">
+    <div class="bg-white shadow-lg rounded-xl p-4 space-y-6">
+
+      
+      <div class="flex items-center justify-between border-b pb-4">
+        <div>
+          <h3 class="font-semibold text-lg">Amala Special</h3>
+          <p class="text-gray-600">₦2,500</p>
+        </div>
+        <input type="number" value="1" min="1" class="w-16 border rounded-lg p-1 text-center">
+      </div>
+
+      <div class="flex items-center justify-between border-b pb-4">
+        <div>
+          <h3 class="font-semibold text-lg">Jollof Rice</h3>
+          <p class="text-gray-600">₦1,800</p>
+        </div>
+        <input type="number" value="2" min="1" class="w-16 border rounded-lg p-1 text-center">
+      </div>
+
+      <div class="flex items-center justify-between border-b pb-4">
+        <div>
+          <h3 class="font-semibold text-lg">Efo Riro</h3>
+          <p class="text-gray-600">₦3,000</p>
+        </div>
+        <input type="number" value="1" min="1" class="w-16 border rounded-lg p-1 text-center">
+      </div>
+
+    </div>
+
+    
+    <div class="mt-6 bg-white shadow-lg rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-lg font-bold">Total: ₦9,100</p>
+      <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition">
+        Proceed to Checkout
+      </button>
+    </div>
+  </main>
+
+</body>
+</html>
